@@ -1,13 +1,16 @@
 import {Container} from 'flux/utils'; 
 import Layout from '../components/Layout/Layout'; 
-import LayoutStore from '../data/Store/LayoutStore'; 
+import LayoutStore from '../data/store/LayoutStore'; 
 
-getStores = () => {
+function getStores(){
     return [LayoutStore]; 
 }
 
-calculateState = () => {
-    return {}; 
+function calculateState(){
+    return {
+        isAuth: LayoutStore.getState().get("idToken") !== null, 
+        isManager: LayoutStore.getState().get('isManager'),
+    }; 
 }
 
 export default Container.createFunctional(Layout, getStores, calculateState); 

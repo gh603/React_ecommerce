@@ -1,9 +1,12 @@
 import React from 'react'; 
 
-const Layout = () => {
+import Aux from '../../hoc/Aux'; 
+import NavBar from '../Navigation/Navbar/NavBar'; 
+
+const Layout = (props) => {
   return (
     <Aux>
-        <div>Nav Bar</div>
+        <NavBar {...props}/>
         <div>Side Bar</div>
         <div>Main</div>
     </Aux>

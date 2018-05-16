@@ -1,19 +1,23 @@
 import React, { Component } from 'react';
+import { Route, Switch, withRouter } from 'react-router-dom'; 
 
 import Aux from './hoc/Aux'; 
+import Layout from './container/Layout'; 
 class App extends Component {
   render() {
+    let routes = (
+      <Switch>
+        <Route path="/"/>
+      </Switch>
+    ); 
     return (
       <Aux>
-        <header className="App-header">
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        <Layout>
+          {routes}
+        </Layout>
       </Aux>
     );
   }
 }
 
-export default App;
+export default withRouter(App);

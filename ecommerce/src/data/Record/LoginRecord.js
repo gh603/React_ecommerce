@@ -1,9 +1,10 @@
 import Immutable from 'immutable'; 
 
 const loginRecord = Immutable.Record({
-    id: '', 
-    isLoggedIn: false, 
-    isManager: false, 
+    userId: null, 
+    idToken: 'adfawqeqwewq', 
+    loading: false,
+    isManager: true,   
 }); 
 
 export default loginRecord; 

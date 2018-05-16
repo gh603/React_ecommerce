@@ -1,6 +1,7 @@
 import {ReduceStore} from 'flux/utils'; 
-import Dispatcher from '../Dispatcher/Dispatcher'; 
-import Immutable from 'immutable'; 
+import Dispatcher from '../dispatcher/Dispatcher'; 
+import ActionTypes from '../actions/actionTypes'; 
+import LoginRecord from '../record/LoginRecord'; 
 
 class LayoutStore extends ReduceStore{
     constructor(){
@@ -8,11 +9,14 @@ class LayoutStore extends ReduceStore{
     }
 
     getInitialState(){
-        return Immutable.Map(); 
+        return new LoginRecord(); 
     }
 
     reduce(state, action){
         switch(action.type){
+            case ActionTypes.AUTH_START: {
+                return state.set('loading', true); 
+            }
             default: return state; 
         }
     }
