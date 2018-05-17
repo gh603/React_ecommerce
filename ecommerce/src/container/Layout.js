@@ -1,16 +1,26 @@
 import {Container} from 'flux/utils'; 
+import React, { Component } from 'react'; 
+
 import Layout from '../components/Layout/Layout'; 
 import LayoutStore from '../data/store/LayoutStore'; 
 
-function getStores(){
-    return [LayoutStore]; 
+class LayoutContainer extends Component {
+    static getStores(){
+        return [LayoutStore]; 
+    }
+    
+    static calculateState(){
+        return {
+            isAuth: LayoutStore.getState().get("idToken") !== null, 
+            isManager: LayoutStore.getState().get('isManager'),
+        }; 
+    }
+
+    render(){
+        return <Layout children={this.props.children} {...this.state}/>
+    }
 }
 
-function calculateState(){
-    return {
-        isAuth: LayoutStore.getState().get("idToken") !== null, 
-        isManager: LayoutStore.getState().get('isManager'),
-    }; 
-}
+const container = Container.create(LayoutContainer); 
 
-export default Container.createFunctional(Layout, getStores, calculateState); 
+export default container; 
