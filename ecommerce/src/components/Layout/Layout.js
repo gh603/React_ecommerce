@@ -20,8 +20,8 @@ class Layout extends Component {
   render() {
     return (
       <Aux>
-        <SideNav open={this.state.showSideNav} closed={this.sideNavCloseHandler}/>
         <NavBar isAuth={this.props.isAuth} isManager={this.props.isManager} />
+        <SideNav open={this.state.showSideNav} toClose={this.sideNavCloseHandler} toOpen={this.sideNavOpenHanlder}/>
         <main>
           {this.props.children}
         </main>

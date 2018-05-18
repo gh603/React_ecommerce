@@ -1,0 +1,17 @@
+.productList {
+    padding-top: 20px;
+    min-height: 100vh;
+    display: grid;
+    grid-auto-rows: 400px;
+    grid-gap: 30px;
+    grid-template-columns: repeat(3, minmax(200px, 300px));
+    justify-content: center;
+    align-items: stretch;
+}
+
+@media screen and (max-width: 720px) {
+  .productList {
+    grid-template-columns: 1fr;
+    margin: 50px 30px;
+  }
+}
