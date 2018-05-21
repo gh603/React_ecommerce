@@ -3,8 +3,14 @@ import {Container} from 'flux/utils';
 
 import ItemsStore from '../data/store/ItemStore'; 
 import Items from '../components/Items/Items'; 
+import ItemDataManager from '../data_managers/ItemDataManager'; 
 
 class ItemsContainer extends Component{
+    constructor(){
+        ItemDataManager.loadItems(); 
+        super(); 
+    }
+
     static getStores(){
         return [ItemsStore]; 
     }
